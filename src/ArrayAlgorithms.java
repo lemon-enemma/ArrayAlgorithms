@@ -171,4 +171,27 @@ public class ArrayAlgorithms {
         }
     }
 
+    public static void shiftNumLeftModify (int[] numList, int shiftNum){
+        int[] newIndexes = new int[numList.length];
+        int[] newList = new int[numList.length];
+        for (int i = 0; i < newIndexes.length; i++){
+            if (i - shiftNum < 0){
+                newIndexes[i] = numList.length - (shiftNum - i);
+            }
+            else {
+                newIndexes[i] = i - shiftNum;
+            }
+        }
+        for (int i = 0; i < newIndexes.length; i++){
+            for (int j = 0; i < newIndexes.length; i++){
+                if (i == newIndexes[j]){
+                    newList[i] = numList[newIndexes[j]];
+                }
+            }
+        }
+        for (int i = 0; i < newIndexes.length; i++){
+            numList = newList;
+        }
+    }
+
 }
